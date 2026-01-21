@@ -52,7 +52,7 @@ export const site: SiteConfig = {
     { label: "Legal", href: "/legal" }
   ],
   seo: {
-    ogImage: "/images/og/default-og.jpg",
+    ogImage: "/images/og/og-default.jpg",
     robots: "index,follow",
     themeColor: "#fbfbf9"
   }
