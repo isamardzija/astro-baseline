@@ -56,13 +56,13 @@ Layered CSS structure:
 
 ```
 src/styles/
-├─ index.css
+├─ global.css
 ├─ partials/
 │  ├─ tokens.css      // design tokens (colors, spacing, fonts)
 │  ├─ reset.css       // minimal reset
 │  ├─ fonts.css       // @font-face declarations
 │  ├─ behaviors.css   // behavior-related CSS (x-dialog, etc.)
-│  └─ global.css      // layout & base styles
+│  └─ structure.css   // layout & base styles
 ```
 
 - BEM-friendly
