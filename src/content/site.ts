@@ -1,14 +1,14 @@
 // src/content/site.ts
-export type SiteNavItem = { 
-    label: string;
-    href: string 
+export type SiteNavItem = {
+  label: string;
+  href: string;
 };
 
 export type SiteConfig = {
   name: string;
   tagline: string;
   description: string;
-  url: string;            
+  url: string;
   locale: string;
   author: {
     name: string;
@@ -29,31 +29,25 @@ export type SiteConfig = {
 };
 
 export const site: SiteConfig = {
-  name: "Astro Baseline",
-  tagline: "A boring, production-ready Astro starter.",
+  name: "osigurano.hr",
+  tagline: "Osiguranje imovine, bez komplikacija",
   description:
-    "Astro Baseline is a minimal HTML-first starter with senior defaults: SEO, JSON-LD, a11y basics, and clean structure.",
+    "Jasno objašnjavamo što je pokriveno, što nije i zašto. Odmah saznajte cijenu osiguranja imovine kroz korisne kalkulatore.",
   url: import.meta.env.SITE_URL ?? "https://example.com",
-  locale: "en",
+  locale: "hr",
   author: {
-    name: "Your Name",
-    email: "hello@example.com",
-    url: "https://example.com",
-    socials: {
-      x: "https://x.com/yourhandle",
-      github: "https://github.com/yourhandle",
-      linkedin: "https://www.linkedin.com/in/yourhandle/"
-    }
+    name: "Ivan Samardžija",
+    email: "ivan@osigurano.hr",
+    url: "https://osigurano.hr",
   },
   nav: [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    { label: "Legal", href: "/legal" }
+    { label: "Početna", href: "/" },
+    { label: "O nama", href: "/o-nama" },
+    { label: "Kontakt", href: "/kontakt" },
   ],
   seo: {
     ogImage: "/images/og/og-default.jpg",
     robots: "index,follow",
-    themeColor: "#fbfbf9"
-  }
+    themeColor: "#fbfbf9",
+  },
 };

@@ -1,0 +1,26 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../content/site";
+
+const title = `Contact — ${site.name}`;
+---
+
+<Base
+  title={title}
+  description={`Contact ${site.name}`}
+  canonicalPath="/kontakt"
+  mainCentered>
+  <article class="prose">
+    <h1>Kontakt</h1>
+
+    <p>Kontaktirajte me putem email adrese:</p>
+
+    {
+      site.author.email && (
+        <p>
+          <a href={`mailto:${site.author.email}`}>{site.author.email}</a>
+        </p>
+      )
+    }
+  </article>
+</Base>

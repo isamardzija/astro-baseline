@@ -1,0 +1,30 @@
+---
+import Base from "../layouts/Base.astro";
+import { site } from "../content/site";
+
+const title = `O nama — ${site.name}`;
+const description = `${site.name} je online vodič za osiguranje imovine u Hrvatskoj.`;
+---
+
+<Base title={title} description={description} canonicalPath="/o-nama">
+  <article class="prose">
+    <h1>O nama</h1>
+
+    <p class="lead">
+      {site.name} nastoji biti vaš online vodič kroz osiguranje.
+    </p>
+
+    <p>
+      Primjetio sam ljudi koji plaćaju osiguranja često nisu upućeni uopće što i
+      zašto plaćaju. Iako svijet osiguranja uistinu je širok i pun papirologije,
+      smatram da razumijevanje onoga što se potpisuje mora biti dostupno svima.
+    </p>
+
+    <p>
+      Nadam se da ću vam pomoći u razumijevanju i odabiru prave police
+      osiguranja. Ukoliko imate bilo kakvih prijedloga ili upita, slobodno me <a
+        href="/kontakt">kontaktirajte.</a
+      >
+    </p>
+  </article>
+</Base>
