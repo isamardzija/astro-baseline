@@ -1,0 +1,26 @@
+---
+// Layout wrapper — no props needed
+---
+
+<div class="risk-card-grid">
+  <slot />
+</div>
+
+<style>
+  .risk-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin: var(--space-5) 0;
+  }
+
+  @media (min-width: 768px) {
+    .risk-card-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .risk-card-grid :global(> *) {
+    min-width: 0;
+  }
+</style>

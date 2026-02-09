@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run build:*)",
+      "WebFetch(domain:kompare.hr)",
+      "WebFetch(domain:trebamosiguranje.hr)",
+      "WebFetch(domain:osiguraj.me)"
+    ]
+  }
+}

@@ -1,0 +1,139 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  mistake: string;
+  solution: string;
+}
+
+const { number, title, mistake, solution } = Astro.props;
+---
+
+<div class="mistake-card">
+  <div class="mistake-card__header">
+    <span class="mistake-card__number" aria-hidden="true">{number}</span>
+    <h4 class="mistake-card__title">{title}</h4>
+  </div>
+  <div class="mistake-card__body">
+    <div class="mistake-card__section">
+      <span class="mistake-card__label mistake-card__label--mistake">Greška</span>
+      <p class="mistake-card__text">{mistake}</p>
+    </div>
+    <div class="mistake-card__section">
+      <span class="mistake-card__label mistake-card__label--solution">Rješenje</span>
+      <p class="mistake-card__text">{solution}</p>
+    </div>
+    <slot />
+  </div>
+</div>
+
+<style>
+  .mistake-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--accent-red);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .mistake-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mistake-card__number {
+    font-size: var(--text-sm);
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    background: var(--accent-red);
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  .mistake-card__title {
+    font-size: var(--text-base);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--fg-heading);
+    margin: 0;
+    line-height: var(--leading-tight);
+  }
+
+  .mistake-card__body {
+    padding: var(--space-4) var(--space-5);
+    line-height: var(--leading-normal);
+    color: var(--fg);
+    flex: 1;
+  }
+
+  .mistake-card__section {
+    margin-bottom: var(--space-3);
+  }
+
+  .mistake-card__section:last-of-type {
+    margin-bottom: 0;
+  }
+
+  .mistake-card__label {
+    display: inline-block;
+    font-weight: 625;
+    margin-bottom: var(--space-1);
+  }
+
+  .mistake-card__label--mistake {
+    color: var(--accent-red);
+  }
+
+  .mistake-card__label--solution {
+    color: var(--accent-green);
+  }
+
+  .mistake-card__text {
+    margin: 0;
+  }
+
+  /* Slotted content */
+
+  .mistake-card__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .mistake-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .mistake-card__body :global(p) {
+    margin: 0 0 var(--space-3);
+  }
+
+  .mistake-card__body :global(strong) {
+    color: var(--fg-heading);
+    font-weight: 625;
+  }
+
+  .mistake-card__body :global(ul),
+  .mistake-card__body :global(ol) {
+    margin: var(--space-2) 0;
+    padding-left: 1.25em;
+  }
+
+  .mistake-card__body :global(ul:last-child),
+  .mistake-card__body :global(ol:last-child) {
+    margin-bottom: 0;
+  }
+
+  .mistake-card__body :global(li) {
+    margin-bottom: var(--space-1);
+    line-height: var(--leading-normal);
+  }
+</style>

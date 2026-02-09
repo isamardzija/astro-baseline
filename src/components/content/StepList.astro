@@ -1,0 +1,16 @@
+---
+// Layout wrapper for StepCard timeline — no props needed
+---
+
+<div class="step-list">
+  <slot />
+</div>
+
+<style>
+  .step-list {
+    display: flex;
+    flex-direction: column;
+    margin: var(--space-5) 0;
+    padding-left: 0;
+  }
+</style>

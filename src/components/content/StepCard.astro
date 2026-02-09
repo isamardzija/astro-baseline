@@ -1,0 +1,130 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  last?: boolean;
+}
+
+const { number, title, last = false } = Astro.props;
+
+const classes = ["step-card", last && "step-card--last"].filter(Boolean).join(" ");
+---
+
+<div class={classes}>
+  <div class="step-card__indicator">
+    <span class="step-card__number" aria-hidden="true">{number}</span>
+    {!last && <span class="step-card__line" />}
+  </div>
+  <div class="step-card__content">
+    <h4 class="step-card__title">{title}</h4>
+    <div class="step-card__body">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<style>
+  .step-card {
+    display: flex;
+    gap: var(--space-4);
+  }
+
+  .step-card__indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .step-card__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--accent-blue);
+    color: #fff;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .step-card__line {
+    width: 2px;
+    flex: 1;
+    background: var(--border);
+    margin: var(--space-1) 0;
+  }
+
+  .step-card__content {
+    flex: 1;
+    padding-bottom: var(--space-5);
+    min-width: 0;
+  }
+
+  .step-card--last .step-card__content {
+    padding-bottom: 0;
+  }
+
+  .step-card__title {
+    font-size: var(--text-base);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--fg-heading);
+    margin: 0 0 var(--space-3);
+    line-height: var(--leading-tight);
+    padding-top: 4px;
+  }
+
+  .step-card__body {
+    line-height: var(--leading-normal);
+    color: var(--fg);
+  }
+
+  /* Slotted content */
+
+  .step-card__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .step-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .step-card__body :global(p) {
+    margin: 0 0 var(--space-3);
+  }
+
+  .step-card__body :global(strong) {
+    color: var(--fg-heading);
+    font-weight: 625;
+  }
+
+  .step-card__body :global(ul),
+  .step-card__body :global(ol) {
+    margin: var(--space-2) 0;
+    padding-left: 1.25em;
+  }
+
+  .step-card__body :global(ul:last-child),
+  .step-card__body :global(ol:last-child) {
+    margin-bottom: 0;
+  }
+
+  .step-card__body :global(li) {
+    margin-bottom: var(--space-1);
+    line-height: var(--leading-normal);
+  }
+
+  .step-card__body :global(h4) {
+    font-weight: 625;
+    color: var(--fg-heading);
+    margin: var(--space-4) 0 var(--space-2);
+  }
+
+  .step-card__body :global(h4:first-child) {
+    margin-top: 0;
+  }
+</style>

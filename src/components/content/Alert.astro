@@ -1,0 +1,82 @@
+---
+interface Props {
+  title?: string;
+  type?: "info" | "warning" | "tip";
+}
+
+const { title, type = "info" } = Astro.props;
+
+const styles: Record<string, string> = {
+  info: "alert alert--info",
+  warning: "alert alert--warning",
+  tip: "alert alert--tip",
+};
+---
+
+<div class={styles[type]} role="alert">
+  {title && <span class="alert__title">{title}</span>}
+  <div class="alert__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .alert {
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    margin: var(--space-3) 0;
+    line-height: var(--leading-normal);
+  }
+
+  .alert__title {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--space-1);
+  }
+
+  .alert__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .alert__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .alert__body :global(ul),
+  .alert__body :global(ol) {
+    margin: var(--space-2) 0;
+    padding-left: 1.25em;
+  }
+
+  .alert__body :global(ul:last-child),
+  .alert__body :global(ol:last-child) {
+    margin-bottom: 0;
+  }
+
+  .alert__body :global(li) {
+    margin-bottom: var(--space-1);
+  }
+
+  .alert__body :global(strong) {
+    color: var(--fg-heading);
+  }
+
+  /* Info */
+  .alert--info {
+    border-color: var(--accent-blue);
+  }
+  .alert--info .alert__title { color: var(--accent-blue); }
+
+  /* Warning */
+  .alert--warning {
+    border-color: var(--accent-amber);
+  }
+  .alert--warning .alert__title { color: var(--accent-amber); }
+
+  /* Tip */
+  .alert--tip {
+    border-color: var(--accent-green);
+  }
+  .alert--tip .alert__title { color: var(--accent-green); }
+</style>

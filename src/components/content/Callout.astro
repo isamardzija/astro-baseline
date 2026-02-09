@@ -1,0 +1,100 @@
+---
+interface Props {
+  title?: string;
+  type?: "info" | "warning" | "tip" | "danger";
+}
+
+const { title, type = "info" } = Astro.props;
+
+const styles: Record<string, string> = {
+  info: "callout callout--info",
+  warning: "callout callout--warning",
+  tip: "callout callout--tip",
+  danger: "callout callout--danger",
+};
+---
+
+<aside class={styles[type]} role="note">
+  {title && <span class="callout__title">{title}</span>}
+  <div class="callout__body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    padding: var(--space-5);
+    border-radius: var(--radius-lg);
+    border-left: 4px solid;
+    margin: var(--space-5) 0;
+    line-height: var(--leading-normal);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .callout__title {
+    display: block;
+    font-size: var(--text-lg);
+    font-weight: 650;
+    margin-bottom: var(--space-2);
+    letter-spacing: -0.01em;
+  }
+
+  .callout__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .callout__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .callout__body :global(ul),
+  .callout__body :global(ol) {
+    margin: var(--space-2) 0;
+    padding-left: 1.5em;
+  }
+
+  .callout__body :global(ul:last-child),
+  .callout__body :global(ol:last-child) {
+    margin-bottom: 0;
+  }
+
+  .callout__body :global(li) {
+    margin-bottom: var(--space-1);
+  }
+
+  .callout__body :global(strong) {
+    color: var(--fg-heading);
+  }
+
+  /* Info */
+  .callout--info {
+    background-color: var(--accent-blue-light);
+    border-left-color: var(--accent-blue);
+  }
+  .callout--info .callout__title { color: var(--accent-blue); }
+  .callout--info .callout__body { color: var(--fg); }
+
+  /* Warning */
+  .callout--warning {
+    background-color: var(--accent-amber-light);
+    border-left-color: var(--accent-amber);
+  }
+  .callout--warning .callout__title { color: var(--accent-amber); }
+  .callout--warning .callout__body { color: var(--fg); }
+
+  /* Tip */
+  .callout--tip {
+    background-color: var(--accent-green-light);
+    border-left-color: var(--accent-green);
+  }
+  .callout--tip .callout__title { color: var(--accent-green); }
+  .callout--tip .callout__body { color: var(--fg); }
+
+  /* Danger */
+  .callout--danger {
+    background-color: var(--accent-red-light);
+    border-left-color: var(--accent-red);
+  }
+  .callout--danger .callout__title { color: var(--accent-red); }
+  .callout--danger .callout__body { color: var(--fg); }
+</style>

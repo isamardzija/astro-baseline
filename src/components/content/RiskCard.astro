@@ -1,0 +1,116 @@
+---
+interface Props {
+  icon: string;
+  title: string;
+  span?: boolean;
+}
+
+const { icon, title, span = false } = Astro.props;
+
+const classes = ["risk-card", span && "risk-card--span"].filter(Boolean).join(" ");
+---
+
+<div class={classes}>
+  <div class="risk-card__header">
+    <span class="risk-card__icon" aria-hidden="true">{icon}</span>
+    <h4 class="risk-card__title">{title}</h4>
+  </div>
+  <div class="risk-card__body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .risk-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .risk-card--span {
+    grid-column: 1 / -1;
+  }
+
+  .risk-card__header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: var(--space-4) var(--space-5);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-subtle);
+  }
+
+  .risk-card__icon {
+    font-size: 1.75rem;
+    line-height: 1;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--bg-surface);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .risk-card__title {
+    font-size: var(--text-base);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--fg-heading);
+    margin: 0;
+    line-height: var(--leading-tight);
+  }
+
+  .risk-card__body {
+    padding: var(--space-4) var(--space-5);
+    line-height: var(--leading-normal);
+    color: var(--fg);
+    flex: 1;
+  }
+
+  /* Slotted content resets */
+
+  .risk-card__body :global(p:first-child) {
+    margin-top: 0;
+  }
+
+  .risk-card__body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .risk-card__body :global(p) {
+    margin: 0 0 var(--space-3);
+  }
+
+  .risk-card__body :global(strong) {
+    color: var(--fg-heading);
+    font-weight: 625;
+  }
+
+  .risk-card__body :global(ul),
+  .risk-card__body :global(ol) {
+    margin: var(--space-2) 0;
+    padding-left: 1.25em;
+  }
+
+  .risk-card__body :global(ul:last-child),
+  .risk-card__body :global(ol:last-child) {
+    margin-bottom: 0;
+  }
+
+  .risk-card__body :global(li) {
+    margin-bottom: var(--space-1);
+    line-height: var(--leading-normal);
+  }
+
+  /* Nested Alert adjustments */
+  .risk-card__body :global(.alert) {
+    margin: var(--space-3) 0;
+  }
+</style>

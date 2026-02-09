@@ -1,0 +1,79 @@
+---
+interface Props {
+  faqs: { question: string; answer: string }[];
+}
+const { faqs } = Astro.props;
+---
+
+<section class="faq-section">
+  <h2>Često postavljana pitanja (FAQ)</h2>
+  <div class="faq-list">
+    {faqs.map((faq) => (
+      <details class="faq-item">
+        <summary>
+          <span>{faq.question}</span>
+          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </summary>
+        <div class="faq-answer">{faq.answer}</div>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq-section h2 {
+    font-size: var(--text-xl);
+    font-weight: 650;
+    letter-spacing: -0.015em;
+    color: var(--fg-heading);
+    margin: var(--space-7) 0 var(--space-4);
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+  }
+
+  summary {
+    font-weight: 500;
+    font-size: var(--text-base);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    color: var(--fg);
+    line-height: var(--leading-tight);
+    padding: var(--space-4) 0;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  summary:hover {
+    text-decoration: underline;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-chevron {
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: transform var(--duration-normal) var(--ease-out);
+  }
+
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .faq-answer {
+    line-height: var(--leading-normal);
+    color: var(--muted);
+    padding-bottom: var(--space-5);
+    white-space: pre-line;
+  }
+</style>

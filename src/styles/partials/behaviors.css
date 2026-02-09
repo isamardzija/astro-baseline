@@ -1,3 +1,14 @@
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 /* Web Components: prevent flash before definition */
 x-dialog:not(:defined),
 x-popover:not(:defined),
