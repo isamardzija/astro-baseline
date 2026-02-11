@@ -1,32 +1,70 @@
 ---
-interface Props {
-  faqs: { question: string; answer: string }[];
+interface FaqCategory {
+  category: string;
+  items: { question: string; answer: string }[];
 }
-const { faqs } = Astro.props;
+interface Props {
+  faqs: FaqCategory[];
+  title?: string;
+}
+const { faqs, title } = Astro.props;
 ---
 
 <section class="faq-section">
-  <h2>Često postavljana pitanja (FAQ)</h2>
-  <div class="faq-list">
-    {faqs.map((faq) => (
-      <details class="faq-item">
-        <summary>
-          <span>{faq.question}</span>
-          <svg class="faq-chevron" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-        </summary>
-        <div class="faq-answer">{faq.answer}</div>
-      </details>
-    ))}
-  </div>
+  {title && <p class="faq-title">{title}</p>}
+  {
+    faqs.map((group) => (
+      <div class="faq-category">
+        <div class="faq-list">
+          {group.items.map((faq) => (
+            <details class="faq-item">
+              <summary>
+                <span>{faq.question}</span>
+                <svg
+                  class="faq-chevron"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </summary>
+              <div class="faq-answer">{faq.answer}</div>
+            </details>
+          ))}
+        </div>
+      </div>
+    ))
+  }
 </section>
 
 <style>
+  .faq-title {
+    font-size: var(--text-base);
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    color: var(--fg-heading);
+    margin: var(--space-4) 0 var(--space-2);
+  }
+
   .faq-section h2 {
     font-size: var(--text-xl);
     font-weight: 650;
     letter-spacing: -0.015em;
     color: var(--fg-heading);
     margin: var(--space-7) 0 var(--space-4);
+  }
+
+  .faq-category-title {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--fg-heading);
+    margin: var(--space-5) 0 var(--space-3);
   }
 
   .faq-list {

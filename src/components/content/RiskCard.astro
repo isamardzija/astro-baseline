@@ -8,6 +8,8 @@ interface Props {
 const { icon, title, span = false } = Astro.props;
 
 const classes = ["risk-card", span && "risk-card--span"].filter(Boolean).join(" ");
+const hasExcludes = Astro.slots.has("excludes");
+const hasFaq = Astro.slots.has("faq");
 ---
 
 <div class={classes}>
@@ -15,9 +17,28 @@ const classes = ["risk-card", span && "risk-card--span"].filter(Boolean).join(" 
     <span class="risk-card__icon" aria-hidden="true">{icon}</span>
     <h4 class="risk-card__title">{title}</h4>
   </div>
-  <div class="risk-card__body">
-    <slot />
+
+  <div class="risk-card__section">
+    <p class="risk-card__label">Što pokriva?</p>
+    <div class="risk-card__body">
+      <slot />
+    </div>
   </div>
+
+  {hasExcludes && (
+    <div class="risk-card__section">
+      <p class="risk-card__label risk-card__label--excludes">Što ne pokriva?</p>
+      <div class="risk-card__body">
+        <slot name="excludes" />
+      </div>
+    </div>
+  )}
+
+  {hasFaq && (
+    <div class="risk-card__section risk-card__section--faq">
+      <slot name="faq" />
+    </div>
+  )}
 </div>
 
 <style>
@@ -67,11 +88,27 @@ const classes = ["risk-card", span && "risk-card--span"].filter(Boolean).join(" 
     line-height: var(--leading-tight);
   }
 
+  .risk-card__section + .risk-card__section {
+    border-top: 1px solid var(--border);
+  }
+
+  .risk-card__label {
+    font-size: var(--text-sm);
+    font-weight: 650;
+    letter-spacing: 0.01em;
+    color: var(--fg-heading);
+    margin: 0;
+    padding: var(--space-3) var(--space-5) 0;
+  }
+
+  .risk-card__section--faq {
+    padding: 0 var(--space-5) var(--space-2);
+  }
+
   .risk-card__body {
-    padding: var(--space-4) var(--space-5);
+    padding: var(--space-3) var(--space-5) var(--space-4);
     line-height: var(--leading-normal);
     color: var(--fg);
-    flex: 1;
   }
 
   /* Slotted content resets */

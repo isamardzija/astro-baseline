@@ -5,7 +5,26 @@ author: "Ivan Samardžija"
 date: "2026-02-09"
 ---
 
-import { faqs } from "../../content/faqs/osiguranje-imovine.js";
+import {
+  faqs,
+  faqOpcenito,
+  faqPozar,
+  faqGrom,
+  faqEksplozija,
+  faqLetjelica,
+  faqOluja,
+  faqTuca,
+  faqSnijeg,
+  faqOborine,
+  faqPoplava,
+  faqPotres,
+  faqIzljevVode,
+  faqLomStakla,
+  faqKradja,
+  faqStetePrilikomProvale,
+  faqOdgovornostPosjed,
+  faqPrivatnaOdgovornost,
+} from "../../content/faqs/osiguranje-imovine.js";
 import FAQ from "../../components/content/FAQ.astro";
 import Callout from "../../components/content/Callout.astro";
 import Alert from "../../components/content/Alert.astro";
@@ -55,7 +74,7 @@ U Hrvatskoj, osiguranje imovine dijeli se na nekoliko kategorija:
 
 - **Osiguranje građevinskog objekta** – pokriva samu strukturu zgrade (zidove, krov, instalacije, podove)
 - **Osiguranje predmeta kućanstva** – štiti namještaj, elektroniku, odjeću i ostale stvari u domu
-- **Osiguranje od odgovornosti** – pokriva štete koje možete prouzročiti trećim osobama
+- **Osiguranje od odgovornosti** – pokriva štete koje vlasništvom možete prouzročiti trećim osobama
 
 Možete osigurati samo građevinski objekt, samo predmete kućanstva ili kombinaciju svega, ovisno o vašim potrebama i budžetu.
 
@@ -71,9 +90,9 @@ Mnogi ljudi pitaju se je li osiguranje imovine stvarno potrebno ili je to samo j
 
 Osiguravajuće kuće za ove (i brojne druge) događaje [namirile štete](https://huo.hr/hr/vijesti/hrvatski-dani-osiguranja-2020-industrija-osiguranja-brzo-je-i-spremno-odgovorila-na-novonastale-izazove-719) za osigurane nekretnine. Umjesto da brinete o katastrofalnim troškovima, plaćate razumnu godišnju premiju i znate da ste zaštićeni.
 
-## Koliko stvarno košta osiguranje imovine?
+## Koliko košta osiguranje imovine? (Primjeri stvarnih polica)
 
-Izvukao sam stvarne podatke o cijenama i pokrićima po policama. Pogledajte tablicu:
+U tablici su stvarni podaci o policama osiguranja kuća, stanova i apartmana. Većina ih je sklopljena 2024.-2025. godine te su i dalje na snazi. Pogledajte tablicu:
 
 | Vrsta nekretnine    | Neto kvadratura | Odabrani paket                                        | Cijena (godišnja) |
 | ------------------- | --------------- | ----------------------------------------------------- | ----------------- |
@@ -95,20 +114,19 @@ Za izračun cijene u obzir se uzima nekoliko stvari. Najbitnija je kvadratura i 
 **Karakteristike objekta:**
 
 - Veličina i vrijednost nekretnine
-- Starost objekta
 - Građevinska kategorija (masivno građeni objekti jeftiniji od drvenih)
-- Lokacija (poplavna područja, potresne zone)
+- Starost objekta (za rizik potresa)
 
 **Odabrano pokriće:**
 
 - Što više rizika, veća premija
 - Viši limiti osiguranja = viša cijena
 
-**Način plaćanja:**
+**Pripadajući popusti:**
 
 - Jednokratno plaćanje: 5% popusta
 - Višegodišnje ugovaranje: do 10% popusta
-- Plaćati se može internet bankarstvom, gotovinom, karticama ili trajnim nalogom
+- Popust na vjernost: do 50% popusta
 
 ## Što sve možete osigurati?
 
@@ -178,6 +196,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Izlaganje vatri radi obrade (kuhanje, pečenje)
     - Štete na dimnjacima
 
+<FAQ faqs={[faqPozar]} title="Česta pitanja o požaru" />
   </RiskCard>
 
   <RiskCard icon="⚡" title="Direktni udar groma">
@@ -188,6 +207,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Prenaponi i indukcije (za to trebate posredni udar groma)
     - Štete na gromobranima i zaštitnim uređajima
 
+<FAQ faqs={[faqGrom]} title="Česta pitanja o udaru groma" />
   </RiskCard>
 
   <RiskCard icon="💥" title="Eksplozija">
@@ -198,10 +218,13 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Eksplozije zbog dotrajalosti ili loše održavanja
     - Detonacije eksploziva ako osoba djeluje zlonamjerno
 
+<FAQ faqs={[faqEksplozija]} title="Česta pitanja o eksploziji" />
   </RiskCard>
 
   <RiskCard icon="✈️" title="Pad ili udar zračne letjelice">
     Rijedak, ali moguć rizik, posebno ako živite blizu zračne luke.
+
+<FAQ faqs={[faqLetjelica]} title="Česta pitanja o padu letjelice" />
   </RiskCard>
 </RiskCardGrid>
 
@@ -217,10 +240,13 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Objekti koji nisu izgrađeni prema lokalnim standardima
     - Slabo održavani ili dotrajalih objekti
 
+<FAQ faqs={[faqOluja]} title="Česta pitanja o oluji" />
   </RiskCard>
 
 <RiskCard icon="🧊" title="Tuča">
   Direktno oštećenje objekta ili predmeta uzrokovano udarom tuče.
+
+<FAQ faqs={[faqTuca]} title="Česta pitanja o tuči" />
 </RiskCard>
 
   <RiskCard icon="❄️" title="Pritisak snježne mase">
@@ -231,6 +257,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Štete na plastenicima i tendama
     - Štete nakon više od 48 sati od prestanka snježenja
 
+<FAQ faqs={[faqSnijeg]} title="Česta pitanja o pritisku snijega" />
   </RiskCard>
 
   <RiskCard icon="🌧️" title="Oborinske vode">
@@ -242,6 +269,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Prodor kroz otvorene prozore i vrata
     - Dugotrajno močenje
 
+<FAQ faqs={[faqOborine]} title="Česta pitanja o oborinskim vodama" />
   </RiskCard>
 
   <RiskCard icon="🌊" title="Poplava, bujica i visoke vode" span>
@@ -264,6 +292,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
       Ova odgoda ne primjenjuje se kod obnavljanja police.
     </Alert>
 
+<FAQ faqs={[faqPoplava]} title="Česta pitanja o poplavi" />
   </RiskCard>
 
   <RiskCard icon="🏚️" title="Potres" span>
@@ -300,6 +329,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
       osnovnu policu osiguranja.
     </Alert>
 
+<FAQ faqs={[faqPotres]} title="Česta pitanja o potresu" />
   </RiskCard>
 </RiskCardGrid>
 
@@ -324,6 +354,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Korozija dostupna kontroli osiguranika
     - Štete od sprinklera
 
+<FAQ faqs={[faqIzljevVode]} title="Česta pitanja o izljevu vode" />
   </RiskCard>
 
   <RiskCard icon="🪟" title="Lom stakla" span>
@@ -342,6 +373,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Optička stakla, rasvjetna tijela
     - Ogrebotine ili izjedanja površine
 
+<FAQ faqs={[faqLomStakla]} title="Česta pitanja o lomu stakla" />
   </RiskCard>
 </RiskCardGrid>
 
@@ -373,10 +405,13 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
       nisu osigurane.
     </Alert>
 
+<FAQ faqs={[faqKradja]} title="Česta pitanja o provalnoj krađi" />
   </RiskCard>
 
   <RiskCard icon="🔐" title="Štete na objektu prilikom provale">
     Pokriva oštećenja na vratima, prozorima i zidovima tijekom provalne krađe ili pokušaja provale, te vandalizam u svezi s provalnom krađom (do 5% iznosa osiguranja).
+
+<FAQ faqs={[faqStetePrilikomProvale]} title="Česta pitanja o štetama prilikom provale" />
   </RiskCard>
 </RiskCardGrid>
 
@@ -392,6 +427,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
 
     **Limiti:** 20.000-40.000 € ovisno o paketu
 
+<FAQ faqs={[faqOdgovornostPosjed]} title="Česta pitanja o odgovornosti iz posjeda" />
   </RiskCard>
 
   <RiskCard icon="👤" title="Privatna odgovornost" span>
@@ -424,149 +460,7 @@ Ovo je temelj svakog osiguranja imovine i obično je najjeftiniji paket. Pokriva
     - Štete od motornih vozila, zrakoplova i plovila
     - Čisto imovinske štete
 
-  </RiskCard>
-</RiskCardGrid>
-
-## Paketi osiguranja: Osnovni, Komforni i Ekskluzivni
-
-Većina osiguravajućih društava nudi nekoliko paketa koji se razlikuju po opsegu pokrića i visini limita:
-
-### 📦 Osnovni paket
-
-**Cijena:** ~200-300 € godišnje za prosječan stan
-
-**Što je pokriveno:**
-
-- ✅ Osnovne požarne rizike
-- ✅ Oluju i tuču
-- ✅ Izljev vode (osim smrzavanja)
-- ✅ Osnovnu provalu i krađu
-- ✅ Odgovornost (10.000-30.000 €)
-
-**Za koga:** Osobe s ograničenim budžetom ili one koje žive u područjima s niskim rizikom.
-
-### 🎯 Komforni paket
-
-**Cijena:** ~350-500 € godišnje za prosječan stan
-
-**Što je pokriveno:**
-
-- ✅ Sve iz osnovnog paketa
-- ✅ Posredni udar groma (do 700 €)
-- ✅ Poplave i bujice (2.000-3.000 €)
-- ✅ Oborinske vode
-- ✅ Smrzavanje cijevi
-- ✅ Lom stakla
-- ✅ Povećane limite za sve rizike
-- ✅ Veću odgovornost (30.000 €)
-
-**Za koga:** Većina vlasnika nekretnina koji žele sveobuhvatnu zaštitu po razumnoj cijeni.
-
-### 💎 Ekskluzivni paket
-
-**Cijena:** ~550-700 € godišnje za prosječan stan
-
-**Što je pokriveno:**
-
-- ✅ Sve iz komfornog paketa
-- ✅ Najviši limiti za sve rizike
-- ✅ Klizanje tla i pad stijenja (dodatno)
-- ✅ Vandalizam i krađa sastavnih dijelova objekta (do 1.000 €)
-- ✅ Troškovi zamjene brave, pribave dokumenata
-- ✅ Najam zamjenskog stana (do 4.000 € / 12 mjeseci)
-- ✅ Privatna odgovornost do 75.000 € širom svijeta
-
-**Za koga:** Vlasnici vrijednih nekretnina, oni koji žive u rizičnim područjima ili oni koji žele apsolutni mir.
-
-## Usporedna tablica paketa
-
-| Rizik / Pokriće               | Osnovni rizici | Osnovni paket | Komforni paket | Ekskluzivni paket |
-| ----------------------------- | -------------- | ------------- | -------------- | ----------------- |
-| **POŽARNI RIZICI**            |
-| Požar, grom, eksplozija       | ✅             | ✅            | ✅             | ✅                |
-| Posredni udar groma           | ❌             | ❌            | ✅ (700€)      | ✅ (1.400€)       |
-| Vandalizam na objektu         | ❌             | ❌            | ❌             | ✅ (1.000€)       |
-| **ELEMENTARNI RIZICI**        |
-| Oluja, tuča, pritisak snijega | ✅             | ✅            | ✅             | ✅                |
-| Poplava, bujica               | ❌             | ❌            | ✅ (2-3k€)     | ✅ (3-4k€)        |
-| Oborinske vode                | ❌             | ❌            | ✅ (3-10%)     | ✅ (5-10%)        |
-| Potres (dodatni rizik)        | ❌             | ❌            | Dodatno        | Dodatno           |
-| **VODA I STAKLO**             |
-| Izljev vode                   | ❌             | ✅            | ✅             | ✅                |
-| Smrzavanje cijevi             | ❌             | ❌            | ✅ (3-4%)      | ✅ (5%)           |
-| Lom stakla                    | ❌             | ✅ (200€)     | ✅ (300€)      | ✅ (IO)           |
-| **KRAĐA**                     |
-| Provalna krađa                | ❌             | ✅            | ✅             | ✅                |
-| Krađa iz vozila               | ❌             | ❌            | ❌             | ✅ (2k€)          |
-| Razbojstvo izvan RH           | ❌             | ❌            | ✅ (250€)      | ✅ (500€)         |
-| **ODGOVORNOST**               |
-| Privatna odgovornost          | ❌             | ✅ (10k€)     | ✅ (30k€)      | ✅ (75k€)         |
-| Posjed kuće/zemljišta         | ❌             | ❌            | ✅ (20k€)      | ✅ (40k€)         |
-| **TROŠKOVI**                  |
-| Najam zamjenskog stana        | ❌             | ❌            | ✅ (2k€)       | ✅ (4k€)          |
-| Raščišćavanje                 | 3%             | 3%            | 5%             | 8%                |
-
-_IO = Iznos osiguranja; k€ = tisuća eura_
-
-## Dodatna pokrića i dopunski rizici
-
-Osim standardnih paketa, možete dodati i specifične zaštite:
-
-<RiskCardGrid>
-  <RiskCard icon="🏔️" title="Klizanje tla i pad stijenja">
-    **Kada je potrebno:** Objekti na brdovitim terenima
-
-    **Što pokriva:** Štete nastale iznenadnim pokretima Zemljine površine, odronjavanja i pada zemljišta
-
-    **Nije pokriveno:** Slijeganje tla, klizanje prouzročeno ljudskom aktivnošću
-
-  </RiskCard>
-
-  <RiskCard icon="🚴" title="Osiguranje bicikla od krađe izvan mjesta osiguranja">
-    Bicikl je pokriven čak i kada ga ukradnu dok je zaključan na javnom mjestu (između 6 i 22 sata), unutar Europe.
-
-    **Uvjeti:**
-
-    - Bicikl mora biti zaštićen odgovarajućim lokotom
-    - Morate imati dokumente o proizvođaču, marki i serijskom broju
-    - Krađa se mora prijaviti policiji
-
-  </RiskCard>
-
-  <RiskCard icon="🌳" title="Hortikulturni nasadi">
-    Pokriva troškove kupnje i sadnje ukrasnog drveća i bilja ako bude uništeno požarom, olujom ili tučom.
-
-    **Nije pokriveno:**
-
-    - Biljke za prehranu
-    - Biljke koje se koriste u svrhu privređivanja
-    - Troškovi bez računa
-
-  </RiskCard>
-</RiskCardGrid>
-
-### 🏖️ Osiguranje za turističke apartmane
-
-Ako iznajmljujete apartman, trebate posebnu zaštitu:
-
-<RiskCardGrid>
-  <RiskCard icon="💰" title="Financijski gubitak najamnine">
-    Nadoknađuje izgubljenu najamninu ako apartman bude toliko oštećen da ga privremeno ne možete iznajmljivati (temeljem prošlogodišnje ostvarene najamnine).
-  </RiskCard>
-
-  <RiskCard icon="🛏️" title="Štete koje počini gost">
-    Pokriva oštećenja ili uništenje opreme koju gost prouzroči iz nehata ili namjerno (do 700 €).
-
-    **Obveza:** Gost mora potpisati izjavu o nastanku štetnog događaja na propisanom obrascu osiguratelja.
-
-  </RiskCard>
-
-  <RiskCard icon="👥" title="Odgovornost iznajmljivača" span>
-    - **Osnovna:** Odgovornost za nestanak, uništenje ili oštećenje stvari gostiju do 1.300 €
-    - **Proširena:** Odgovornost za stvari preuzete na čuvanje do iznosa osiguranja
-
-    **Važno:** U slučaju krađe obavezna je prijava policiji.
-
+<FAQ faqs={[faqPrivatnaOdgovornost]} title="Česta pitanja o privatnoj odgovornosti" />
   </RiskCard>
 </RiskCardGrid>
 
@@ -611,14 +505,17 @@ Neovisno o ugovorenom pokriću, osiguranje NE pokriva:
 ❌ **Kontaminacija** – Zagađenje osim ako je posljedica osiguranog događaja  
 ❌ **Napadi na računalne sustave** – Cyber napadi (osim ako uzrokuju fizičku štetu)
 
-## Kako odabrati pravu policu? Korak po korak
+**Posebna isključenja**
+
+Ovisno o riziku, mogu postojati druga isključenja. Neka od najčešćih su navedena ranije u članku unutar svakog rizika.
+
+## Kako osigurati imovinu (korak po korak)
 
 <StepList>
   <StepCard number={1} title="Procjena potreba">
-    Započnite procjenom što želite osigurati:
+    Razmislite što želite osigurati:
 
     - Samo objekt ili i predmete kućanstva?
-    - Trebate li odgovornost?
     - Koje rizike smatrate najvažnijima?
     - Koji je vaš budžet?
 
@@ -628,7 +525,6 @@ Neovisno o ugovorenom pokriću, osiguranje NE pokriva:
     #### Za građevinski objekt:
 
     - Procijenite koliko bi koštala potpuna obnova (**nova građevinska vrijednost**)
-    - Uključite troškove arhitekata i inženjera
     - Ne temeljite se na tržišnoj cijeni nekretnine – to je često drugačije od troška obnove
 
     <Alert type="tip" title="Praktični savjet">
@@ -641,12 +537,6 @@ Neovisno o ugovorenom pokriću, osiguranje NE pokriva:
     - Napravite popis sve vrijednije opreme
     - Procijenite koliko bi koštala kupnja svega novog
     - Za vrijednije stvari čuvajte račune
-
-<Alert type="warning" title="Važno napomenuti">
-    **Podosiguranje** znači da je iznos osiguranja niži od stvarne vrijednosti. Tada se razmjerno smanjuje i isplaćena naknada.
-
-      **Primjer:** Kuća vrijedi 200.000 €, osigurana za 150.000 €. U slučaju potpune štete dobivate samo 75% naknade (150.000/200.000).
-    </Alert>
 
   </StepCard>
 
@@ -767,54 +657,6 @@ Ako u svom domu obavljate djelatnost:
 - Razmislite o osiguranju vlastitog namještaja/opreme
 - Obvežite stanara ugovorom da osigura svoje stvari i odgovornost
 
-## Dodatne usluge i benefiti
-
-### 🔧 24/7 Asistencija u domu ("Moj Majstor")
-
-Mnogi osiguratelji nude besplatnu ili povoljnu (1-1,50 € mjesečno) asistencijsku uslugu:
-
-**Što pokriva:**
-
-- Hitne vodoinstalaterske intervencije (puknula cijev, začepljen odvod)
-- Električne kvarove (kratki spoj, nestanak struje)
-- Bravarske usluge (zaključali ste se van)
-- Staklarske usluge (razbijen prozor)
-- Stolarske usluge (oštećena vrata)
-
-**Uvjeti:**
-
-- Dostupno 24 sata, 365 dana u godini
-- Obično do 3 intervencije godišnje
-- Pokriveni su troškovi rada i dolaska (materijal često nije uključen)
-- Poziv iz mobilne aplikacije
-
-<Callout type="tip" title="Isplativo">
-  Čak i jedan hitni poziv vodoinstalatera vikendom može koštati 100-200 €.
-  Godišnja pretplata od 12-18 € je minimalan trošak za maksimalan mir.
-</Callout>
-
-### 📱 Mobilne aplikacije osiguratelja
-
-Moderna osiguravajuća društva nude mobilne aplikacije koje omogućuju:
-
-- Pregled svih polica osiguranja na jednom mjestu
-- Plaćanje premija
-- Prijavu štete s fotografijama i lokacijom
-- Praćenje statusa obrade štete
-- Poziv 24/7 asistencije
-- Digitalne police i potvrde
-
-### 💰 Programi lojalnosti
-
-Neki osiguratelji nude programe gdje možete:
-
-- Povezati više osiguranja u jedan paket
-- Ostvariti popuste kod partnera
-- Dobiti gratis dodatna osiguranja
-- Sakupljati bodove za popuste
-
-**Primjer:** Osiguranjem automobila + doma možete ostvariti dodatnih 10-15% popusta na ukupnu premiju.
-
 ## Najčešće greške pri osiguranju imovine
 
 <RiskCardGrid>
@@ -824,11 +666,6 @@ Neki osiguratelji nude programe gdje možete:
     mistake="Podcjenjivanje vrijednosti kućanstva."
     solution="Napravite detaljan popis: namještaj, elektronika, odjeća, kuhinjski aparati, alat, sportska oprema. Sve zbrojite – iznos može biti mnogo veći nego što mislite."
   >
-    **Prosječna vrijednost kućanstva:**
-
-    - Stan 50 m²: 15.000-25.000 €
-    - Stan 80 m²: 25.000-40.000 €
-    - Kuća 120 m²: 40.000-70.000 €
 
   </MistakeCard>
 
@@ -867,12 +704,19 @@ Neki osiguratelji nude programe gdje možete:
   solution="Osiguranje na novu vrijednost košta malo više, ali u slučaju štete dobivate dovoljno za kupnju nove opreme, ne rabljene."
 />
 
-  <MistakeCard
-    number={7}
-    title="Nesnimanje i nefotografiranje imovine"
-    mistake="Nemate dokaze o tome što ste posjedovali."
-    solution="Snimite video ili fotografije svake prostorije prije nego sklopite osiguranje. Čuvajte račune za vrijednije predmete."
-  />
+<MistakeCard
+  number={7}
+  title="Nesnimanje i nefotografiranje imovine"
+  mistake="Nemate dokaze o tome što ste posjedovali."
+  solution="Snimite video ili fotografije svake prostorije prije nego sklopite osiguranje. Čuvajte račune za vrijednije predmete."
+/>
+<MistakeCard
+  number={8}
+  title="Podosiguranje"
+  mistake="Osiguravanje imovine na nedovoljan iznos da pokrije realnu štetu koja može nastati. Tada se i isplata razmjerno smanjuje."
+  solution="Napraviti realnu procjenu građevinske vrijednosti nekretnine i kućanstva."
+/>
+
 </RiskCardGrid>
 
 ## Što učiniti kada se dogodi šteta?
@@ -886,8 +730,10 @@ Neki osiguratelji nude programe gdje možete:
 3. ✅ **Fotografirajte ili snimite štetu** – prije nego što bilo što pomaknete
 4. ✅ **U slučaju požara, krađe ili vandalizma** – prijavite policiji
 
-<Callout type="warning" title="Ne dirajte ništa">
-  Ne pokrećite ništa dok osiguratelj ne obavi pregled, osim ako:
+<Callout type="warning" title="Važno napomenuti">
+**Kada se šteta ne smije "dirati"**
+
+Ne pokrećite ništa dok osiguratelj ne obavi pregled, osim ako:
 
 - Postoji opasnost po život ili zdravlje
 - Morate spriječiti dodatnu štetu
@@ -901,10 +747,9 @@ Neki osiguratelji nude programe gdje možete:
 
 **Načini prijave:**
 
-- 📧 E-mailom: stete.hr@generali.com
-- 📞 Telefonski
-- 💻 Online obrascem na web stranici osiguratelja
 - 🏢 Osobno u uredu
+- 📧 E-mailom
+- 💻 Online obrascem na web stranici osiguratelja
 
 **Prijava mora sadržavati:**
 
@@ -989,141 +834,11 @@ Unaprijed se sporazumijevate što će biti predmet vještačenja:
 - Bezgotovinska isplata na račun
 - U slučaju neplaćenih obroka premije, osiguratelj može odbiti dospjele obroke od osigurnine
 
-**Što se upisuje:**
-
-- Osigurnina se isplaćuje u iznosu stvarno nastale štete
-- Maksimalno do iznosa osiguranja
-- Troškovi za sprječavanje i umanjenje štete nadoknađuju se čak i ako prelaze iznos osiguranja
-
-## 💡 Savjeti za uštedu na premiji
-
-### 1. Višegodišnje ugovaranje
-
-**Ušteda:** do 10%
-
-Umjesto jednogodišnjeg ugovora, sklopite policu na 3, 5 ili 10 godina. Premija je fiksna i ne može se povećati tijekom trajanja ugovora.
-
-### 2. Jednokratno plaćanje
-
-**Ušteda:** 3-5%
-
-Platite cijelu godišnju premiju odjednom umjesto u mjesečnim obrocima.
-
-### 3. Povećajte odbitnu franšizu
-
-**Ušteda:** 10-20%
-
-Pristanite sudjelovati u šteti s 200-500 €. To smanjuje premiju, a vi i dalje imate zaštitu za velike štete.
-
-### 4. Kombinirajte više osiguranja
-
-**Ušteda:** 10-15%
-
-Ako kod istog osiguratelja imate auto osiguranje, dopunsko zdravstveno i osiguranje doma, možete ostvariti značajne popuste.
-
-### 5. Instalirajte sigurnosne sustave
-
-**Ušteda:** 5-15%
-
-Alarm, protuprovalni prozori, protupožarni sustav mogu smanjiti premiju.
-
-### 6. Dobra povijest bez šteta
-
-**Ušteda:** do 20%
-
-Ako nekoliko godina nije bilo šteta, neki osiguratelji nude "no-claim" bonus.
-
-### 7. Online sklapanje
-
-**Ušteda:** 5-25%
-
-Mnogi osiguratelji nude popuste za police sklopljene online.
-
-### 8. Povećajte iznos osiguranja
-
-**Paradoks:** Veći iznos osiguranja ne znači puno veću premiju
-
-Razlika između osiguranja na 80% i 100% vrijednosti često je samo 10-15% premije, a u slučaju štete dobivate punu naknadu bez primjene podosiguranja.
-
-## ☑️ Checklist: Prije nego sklopite osiguranje
-
-Prođite kroz ovu listu prije potpisivanja police:
-
-### Priprema
-
-- [ ] Snimio/la sam video svoj dom
-- [ ] Imam popis sve vrijednije opreme s cijenama
-- [ ] Imam račune za skupu opremu
-- [ ] Znam tržišnu vrijednost mog objekta
-- [ ] Znam trošak obnove mog objekta (€/m²)
-
-### Razumijevanje police
-
-- [ ] Razumijem razliku između nove i stvarne vrijednosti
-- [ ] Znam što je pokriveno, a što isključeno
-- [ ] Razumijem što je podosiguranje i kako ga izbjeći
-- [ ] Provjerio/la sam limite za stvari posebne vrijednosti
-- [ ] Razumijem kako funkcionira odbitna franšiza
-
-### Usporedba
-
-- [ ] Usporedio/la sam najmanje 3 ponude
-- [ ] Provjerio/la sam recenzije i iskustva drugih korisnika
-- [ ] Razumijem što mi dodatno nude (asistencija, aplikacija)
-- [ ] Pitao/la sam o svim dostupnim popustima
-
-### Dokumentacija
-
-- [ ] Imam kopiju police
-- [ ] Znam kako i gdje prijaviti štetu
-- [ ] Imam broj police negdje spremljen
-- [ ] Znam kontakt osiguratelja
-- [ ] Upoznat/a sam s rokovima prijave štete (3 dana)
-
-### Održavanje
-
-- [ ] Postavio/la sam godišnji podsjetnik za provjeru police
-- [ ] Znam da moram prijaviti značajne promjene
-- [ ] Imam plan što učiniti u slučaju hitnih situacija
-
-<FAQ faqs={faqs} />
+<FAQ faqs={[faqOpcenito]} title="Često postavljana pitanja (FAQ)" />
 
 ## Zaključak: Osigurajte svoj dom, osigurajte svoj mir
 
 Osiguranje imovine nije trošak – to je investicija u sigurnost i budućnost. Jedan nepredviđeni događaj može vas financijski uništiti ili vas samo privremeno uznemiiti, ovisno o tome jeste li osigurani ili ne.
-
-### Ključni zaključci
-
-**5 razloga zašto trebate osiguranje imovine:**
-
-1. **Financijska zaštita** – Troškovi obnove mogu biti katastrofalni (50.000-200.000+ €)
-2. **Zaštita od odgovornosti** – Možete biti odgovorni za štete trećima do milijunskih iznosa
-3. **Mir** – Spavate mirnije znajući da ste zaštićeni
-4. **Pristupačno** – Već od 200-300 € godišnje za osnovnu zaštitu
-5. **Fleksibilno** – Birate samo ono što vam treba
-
-### Pet koraka do idealne police
-
-**Korak 1:** Procijenite što želite osigurati i koji su vam rizici najvažniji
-
-**Korak 2:** Odredite pravi iznos osiguranja (ne podcjenjujte vrijednost!)
-
-**Korak 3:** Usporedite najmanje 3 ponude različitih osiguratelja
-
-**Korak 4:** Pročitajte uvjete i razjasnite sve nejasnoće
-
-**Korak 5:** Redovito ažurirajte policu (godišnje)
-
-### Zlatna pravila osiguranja imovine
-
-<Callout type="tip" title="Zapamtite">
-  1. **Snimite i fotografirajte** sve prostorije prije sklapanja osiguranja 2.
-  **Čuvajte račune** za vrijednije stvari 3. **Osigurajte na punu vrijednost** –
-  izbjegnite podosiguranje 4. **Ne štedite na odgovornosti** – to može biti
-  najisplativiji dio 5. **Prijavite štetu odmah** (unutar 3 dana) 6.
-  **Ažurirajte policu** nakon većih kupovina ili renovacija 7. **Ne odbacujte
-  dodatke** kao što su asistencija – često su vrlo isplativi
-</Callout>
 
 ### Posljednja poruka
 
@@ -1143,13 +858,6 @@ Vaš dom je vaš najveći uspjeh. Zaštitite ga.
 - [Zaštita potrošača - osiguranja](https://gov.hr/moja-uprava/gradjani/zastita-potrosaca/636)
 - [Državni hidrometeorološki zavod - upozorenja](https://meteo.hr/)
 
-### Kontakti za hitne situacije
-
-- 🚒 Vatrogasci: **193**
-- 🚓 Policija: **192**
-- 🚑 Hitna pomoć: **194**
-- 📞 Jedinstveni europski broj: **112**
-
 ---
 
 <Callout type="info" title="Napomena">
@@ -1160,4 +868,4 @@ Vaš dom je vaš najveći uspjeh. Zaštitite ga.
   osiguratelja.
 </Callout>
 
-_Posljednje ažuriranje: Veljača 2026_
+_Posljednje ažuriranje: 10.2.2026. godine_
